@@ -49,7 +49,7 @@ class AddBookController extends GetxController {
         });
         if (response.statusCode == 201) {
           await StorageProvider.write(StorageKey.status, "logged");
-          Get.offAllNamed(Routes.HOME);
+          Get.offAllNamed(Routes.BOOK);
         } else {
           Get.snackbar("Sorry", "Login Gagal", backgroundColor: Colors.orange);
         }
