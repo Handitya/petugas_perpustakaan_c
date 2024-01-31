@@ -6,6 +6,7 @@ import '../controllers/add_book_controller.dart';
 
 class AddBookView extends GetView<AddBookController> {
   const AddBookView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

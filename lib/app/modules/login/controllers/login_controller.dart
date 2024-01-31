@@ -17,6 +17,7 @@ class LoginController extends GetxController {
   final loading = false.obs;
 
   final count = 0.obs;
+
   @override
   void onInit() {
     super.onInit();

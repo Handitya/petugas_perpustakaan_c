@@ -19,6 +19,7 @@ class ResponsesBook {
       });
     }
   }
+
   int? status;
   String? message;
   List<DataBook>? data;
@@ -69,12 +70,13 @@ class DataBook {
     kategori =
         json['kategori'] != null ? Kategori.fromJson(json['kategori']) : null;
   }
+
   int? id;
-  int? kategoriId;
+  String? kategoriId;
   String? judul;
   String? penulis;
   String? penerbit;
-  int? tahunTerbit;
+  String? tahunTerbit;
   String? createdAt;
   String? updatedAt;
   Kategori? kategori;
@@ -109,6 +111,7 @@ class Kategori {
     id = json['id'];
     nama = json['nama'];
   }
+
   int? id;
   String? nama;
 

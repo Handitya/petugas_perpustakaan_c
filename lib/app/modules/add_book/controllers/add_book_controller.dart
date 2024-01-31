@@ -5,8 +5,7 @@ import 'package:dio/dio.dart' as dio;
 
 import '../../../data/constant/endpoint.dart';
 import '../../../data/provider/api_provider.dart';
-import '../../../data/provider/storage_provider.dart';
-import '../../../routes/app_pages.dart';
+import '../../book/controllers/book_controller.dart';
 
 class AddBookController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -14,8 +13,10 @@ class AddBookController extends GetxController {
   final TextEditingController penulisController = TextEditingController();
   final TextEditingController penerbitController = TextEditingController();
   final TextEditingController tahunController = TextEditingController();
-
+  final loading = false.obs;
   final count = 0.obs;
+  final BookController _bookController = Get.find();
+
   @override
   void onInit() {
     super.onInit();
@@ -48,8 +49,8 @@ class AddBookController extends GetxController {
           "tahun_terbit": int.parse(tahunController.text.toString())
         });
         if (response.statusCode == 201) {
-          await StorageProvider.write(StorageKey.status, "logged");
-          Get.offAllNamed(Routes.BOOK);
+          _bookController.getData();
+          Get.back();
         } else {
           Get.snackbar("Sorry", "Login Gagal", backgroundColor: Colors.orange);
         }
